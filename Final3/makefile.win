@@ -1,0 +1,58 @@
+# Project: Project
+# Makefile created by Red Panda C++ 3.1.2871
+
+CXX      = "g++.exe"
+CC       = "gcc.exe"
+WINDRES  = "windres.exe"
+RM       = del /q /f
+CD       = cd /d
+LIBS     = "-mwindows" "-lraylib" "-lopengl32" "-lgdi32" "-lwinmm"
+INCS     = 
+CXXINCS  = 
+CXXFLAGS = $(CXXINCS) "-g3" "-pipe" "-Wall" "-D_DEBUG"
+CFLAGS   = $(INCS) "-g3" "-pipe" "-Wall" "-D_DEBUG"
+WINDRESFLAGS = 
+RES      = Project_private.res
+OBJ      = interact.o Global.o ball.o main.o point.o tiger.o drawmap.o map.o $(RES)
+BIN      = Project.exe
+LINKOBJ  = "interact.o" "Global.o" "ball.o" "main.o" "point.o" "tiger.o" "drawmap.o" "map.o" "Project_private.res"
+CLEANOBJ = "interact.o" "Global.o" "ball.o" "main.o" "point.o" "tiger.o" "drawmap.o" "map.o" "Project_private.res" "Project.exe"
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	-$(RM) $(CLEANOBJ) >NUL 2>&1
+
+Project.exe: $(OBJ)
+
+	$(CXX) $(LINKOBJ) -o "Project.exe" $(LIBS)
+
+interact.o: interact.cpp ball.h point.h Header.h drawmap.h map.h tiger.h
+	$(CXX) -c "interact.cpp" -o "interact.o" $(CXXFLAGS) 
+
+Global.o: Global.cpp ball.h point.h Header.h drawmap.h map.h tiger.h
+	$(CXX) -c "Global.cpp" -o "Global.o" $(CXXFLAGS) 
+
+ball.o: ball.cpp ball.h point.h Header.h drawmap.h map.h tiger.h
+	$(CXX) -c "ball.cpp" -o "ball.o" $(CXXFLAGS) 
+
+main.o: main.cpp ball.h point.h Header.h drawmap.h map.h tiger.h
+	$(CXX) -c "main.cpp" -o "main.o" $(CXXFLAGS) 
+
+point.o: point.cpp ball.h point.h Header.h drawmap.h map.h tiger.h
+	$(CXX) -c "point.cpp" -o "point.o" $(CXXFLAGS) 
+
+tiger.o: tiger.cpp ball.h point.h Header.h drawmap.h map.h tiger.h
+	$(CXX) -c "tiger.cpp" -o "tiger.o" $(CXXFLAGS) 
+
+drawmap.o: drawmap.cpp ball.h point.h Header.h drawmap.h map.h tiger.h
+	$(CXX) -c "drawmap.cpp" -o "drawmap.o" $(CXXFLAGS) 
+
+map.o: map.cpp ball.h point.h Header.h drawmap.h map.h tiger.h
+	$(CXX) -c "map.cpp" -o "map.o" $(CXXFLAGS) 
+
+Project_private.res: Project_private.rc 
+	$(WINDRES) -i "Project_private.rc" --input-format=rc -o "Project_private.res" -O coff $(WINDRESFLAGS) 
+
