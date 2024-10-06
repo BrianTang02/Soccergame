@@ -3,3 +3,4 @@ This repository consists of 3 parts: main code, document of contributers, and sc
 
 This game was developed on [raylib](https://www.raylib.com/). We suggest you install [RedPanda](http://royqh.net/redpandacpp/download/) to run the code.
 ## About its origin story
+To be added.
