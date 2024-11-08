@@ -4,5 +4,6 @@ This repository consists of 4 parts: main code, document of contributers, the re
 This game was developed on [raylib](https://www.raylib.com/). We suggest you install [RedPanda](http://royqh.net/redpandacpp/download/) to run the code.
 
 To play the game, you can simply download the release version.
+This is a [Qt-based version](https://github.com/BrianTang02/Soccergame-Qt-based-). We added some extra levels and elements to the game while doing the transition.
 ## About its origin story
 To be added.
